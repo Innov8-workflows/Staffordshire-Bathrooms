@@ -1,8 +1,12 @@
-# Whitelist: only the built page and the deploy workflow are published.
-# build.js, site.config.js, _src and the raw client photographs stay local
-# (the site-security gate flags them as S1 if they are served or public).
+# Whitelist: only the built multi-page site and the deploy workflow are published.
+# build.js, generate.js, site.config.js, _src, _source, content and the raw client
+# photographs (including _src/assets/work/) stay local - the site-security gate flags
+# them as S1 if they are served or public. The repo-root index.html (the kit engine's
+# single-file build) is also local only now: generate.js's _site/index.html is the real,
+# published homepage (site-buildout, 2026-10-28).
 *
 !.gitignore
 !.github/
 !.github/**
-!index.html
+!_site/
+!_site/**
